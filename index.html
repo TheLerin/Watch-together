@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidGlass - Anime-Style Blur Video Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+     <div class="main-content">
+<header id="header">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <div class="search-container">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
+
+  <div class="icons">
+    <i class="fas fa-user"></i>
+    <i class="fas fa-bell"></i>
+    <i class="fas fa-heart"></i>
+  </div>
+</header>
+
+  
+    <div class="page-container">
+        <!-- First Page - Video and Playlist -->
+        <div class="page-1">
+            <!-- Left Section - Video Player -->
+            <div class="video-section">
+                <div class="video-container">
+                    <div class="video-player" id="videoPlayer">
+                        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;background:rgba(20,20,20,0.7);">
+                            <i class="fas fa-play-circle" style="font-size:64px;color:rgba(255,255,255,0.3);margin-bottom:20px;"></i>
+                            <p style="color:rgba(255,255,255,0.5);">Upload a video or enter YouTube URL</p>
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="video-title" id="videoTitle">No video selected</div>
+                    
+
+                    <div class="video-controls">
+                        <button class="control-btn like-btn" id="likeBtn">
+                            <i class="fas fa-thumbs-up"></i> Like
+                        </button>
+                        <button class="control-btn share-btn" id="shareBtn">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Section - Upload & Playlist -->
+            <div class="upload-section">
+                <div class="upload-container">
+                    <div class="upload-header">
+                        <div class="section-title">Upload Video</div>
+                    </div>
+                    
+                    <div class="upload-option">
+                        <div class="url-upload">
+                            <input type="text" class="url-input" placeholder="Enter YouTube URL..." id="videoUrl">
+                            <button class="upload-btn" id="uploadUrlBtn">Upload</button>
+                        </div>
+                        
+                        <div class="drag-drop-area" id="dropArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop to upload video</p>
+                            <span>or click to browse files</span>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist">
+                        <div class="playlist-title">
+                            Your Playlist
+                            <span id="playlistCount">0 videos</span>
+                        </div>
+                        
+                        <!-- Playlist will be populated dynamically -->
+                        <div id="playlistItems"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      
+        <section > 
+            <img src="image2.jpg" style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  ">
+        <!-- Second Page - Chat Section -->
+        <div class="page-2">
+            <div class="chat-header">
+                <div class="chat-title">Watch Together Chat</div>
+                <div class="online-count"><i class="fas fa-users"></i> 12 users online</div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message received">
+                        <div class="message-header">
+                            <div class="message-user">Alex</div>
+                            <div class="message-time">10:24 AM</div>
+                        </div>
+                        <div class="message-content">Hey everyone! What are we watching today?</div>
+                    </div>
+                    
+                    <div class="message sent">
+                        <div class="message-header">
+                            <div class="message-user">You</div>
+                            <div class="message-time">10:25 AM</div>
+                        </div>
+                        <div class="message-content">I just uploaded a new music video. Let's watch it together!</div>
+                    </div>
+                    
+                    <div class="message received">
+                        <div class="message-header">
+                            <div class="message-user">Jamie</div>
+                            <div class="message-time">10:26 AM</div>
+                        </div>
+                        <div class="message-content">Sounds great! I love this song 😍</div>
+                    </div>
+                    
+                    <div class="message received">
+                        <div class="message-header">
+                            <div class="message-user">Taylor</div>
+                            <div class="message-time">10:27 AM</div>
+                        </div>
+                        <div class="message-content">The visuals on this are amazing! How did they do that effect?</div>
+                    </div>
+                    
+                    <div class="message sent">
+                        <div class="message-header">
+                            <div class="message-user">You</div>
+                            <div class="message-time">10:28 AM</div>
+                        </div>
+                        <div class="message-content">I think it's a combination of practical effects and CGI. The director is known for that style.</div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message here...">
+                    <button class="chat-send-btn" id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        </section>
+<section>
+ 
+            <!-- Features Section -->
+            <div class="features-section">
+                <div class="section-header">
+                    <h2 class="section-title">Premium Features</h2>
+                    <p class="section-subtitle">Experience the next generation of video streaming with our anime-inspired platform</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-play-circle"></i>
+                        <h3 class="feature-title">Anime-Style Blur</h3>
+                        <p class="feature-desc">Beautiful background blur effects inspired by your favorite anime</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3 class="feature-title">Watch Parties</h3>
+                        <p class="feature-desc">Enjoy videos together with friends in real-time</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3 class="feature-title">Easy Uploads</h3>
+                        <p class="feature-desc">Upload videos from any source with drag & drop</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3 class="feature-title">Multi-Device</h3>
+                        <p class="feature-desc">Access your content from any device, anywhere</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Device Showcase -->
+            <div class="device-showcase">
+                <div class="laptop">
+                    <div class="laptop-screen">
+                        <video src="video41.mp4" autoplay muted loop></video>
+                    </div>
+                    <div class="laptop-base"></div>
+                </div>
+                
+                <div class="phone">
+                    <div class="phone-top">
+                        <div class="phone-camera"><div class="int"></div></div>
+                        <div class="phone-speaker"></div>
+                    </div>
+                    <div class="phone-btn1"></div>
+                    <div class="phone-btn2"></div>
+                    <div class="phone-btn3"></div>
+                    <div class="phone-screen">
+                        <video src="video41.mp4" autoplay muted loop></video>
+                    </div>
+                </div>
+            </div>
+            
+
+        </section>
+        <section >
+          <div class="t1">
+ <div class="grid">
+    <div class="card">
+  <svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">YouTube</div>
+    </div>
+    <div class="card">
+<svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">HiAnime</div>
+    </div>
+    <div class="card">
+     <svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">Quantum</div>
+    </div>
+    <div class="card">
+<svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">Echo Valley</div>
+    </div>
+    <div class="card">
+      
+      <div class="label">Outside</div>
+    </div>
+    <div class="card">
+   <svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">APEX</div>
+    </div>
+    <div class="card">
+    <svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">Celestial</div>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 50 50"><rect x="15" y="15" width="10" height="10"/><rect x="25" y="25" width="10" height="10"/></svg>
+      <div class="label">2TWICE</div>
+    </div>
+  </div>
+          </div>
+        </section>
+
+        
+        <!-- Third Page - Footer -->
+       
+           <!-- Footer -->
+<footer class="footer">
+  <div class="footer-left">
+    <img src="logo.png" alt="Logo" class="footer-logo">
+    <p>The internet is your canvas</p>
+  </div>
+
+  <div class="footer-links">
+    <div class="column">
+      <h4>Resources</h4>
+      <a href="#">Academy</a>
+      <a href="#">Marketplace</a>
+      <a href="#">Desktop App</a>
+      <a href="#">Brand</a>
+      <a href="#">Wallpapers</a>
+    </div>
+
+    <div class="column">
+      <h4>Tools</h4>
+      <a href="#">Figma to Framer</a>
+      <a href="#">HTML to Framer</a>
+      <a href="#">Developers</a>
+      <a href="#">Startup Kit</a>
+      <a href="#">SaaS Kit</a>
+    </div>
+
+    <div class="column">
+      <h4>Company</h4>
+      <a href="#">Careers</a>
+      <a href="#">Events</a>
+      <a href="#">Status</a>
+      <a href="#">Security</a>
+      <a href="#">Privacy</a>
+    </div>
+
+    <div class="column">
+      <h4>Compare</h4>
+      <a href="#">Webflow</a>
+      <a href="#">WordPress</a>
+      <a href="#">Contentful</a>
+      <a href="#">Unbounce</a>
+      <a href="#">Figma</a>
+      <a href="#">Ceros</a>
+    </div>
+
+    <div class="column">
+      <h4>Legal</h4>
+      <a href="#">Abuse</a>
+      <a href="#">Charges</a>
+      <a href="#">Cookies</a>
+      <a href="#">Terms</a>
+
+      <div class="social-icons">
+        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
